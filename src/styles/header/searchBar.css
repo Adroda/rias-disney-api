@@ -1,0 +1,13 @@
+.searchBarContainer {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  top: 50%;
+  transform: translateY(50%);
+  width: 302px;
+  height: 47px;
+}
+
+.searchIcon {
+  background-color: white;
+}

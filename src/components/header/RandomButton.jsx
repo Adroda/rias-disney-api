@@ -1,3 +1,5 @@
 const RandomButton = ({ card, setCard }) => {
-  return <></>;
+  return <button>Random</button>;
 };
+
+export default RandomButton;
