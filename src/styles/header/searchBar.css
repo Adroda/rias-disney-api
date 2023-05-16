@@ -2,12 +2,22 @@
   display: flex;
   align-items: center;
   margin: 0;
-  top: 50%;
-  transform: translateY(50%);
   width: 302px;
   height: 47px;
+  align-self: center;
 }
 
 .searchIcon {
   background-color: white;
+  height: 100%;
+}
+
+.searchbar-input {
+  border: none;
+  outline: none;
+  height: 100%;
+  padding-left: 0.5rem;
+}
+.searchBarContainer {
+  height: 2rem;
 }
