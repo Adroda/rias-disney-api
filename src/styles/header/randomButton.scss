@@ -1,0 +1,54 @@
+@import "../../styles.scss";
+
+.randomButton {
+  appearance: button;
+  background-color: $white;
+  background-image: none;
+  border: 1px solid $white;
+  border-radius: 4px;
+  box-shadow: $blueDisney 4px 4px 0 0, $blueDisney 4px 4px 0 1px;
+  box-sizing: border-box;
+  color: $black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Disney2', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 10px;
+  margin-right: 2rem;
+  overflow: visible;
+  padding: 12px 40px;
+  text-align: center;
+  text-transform: none;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  height: 32px;
+  box-shadow: $black 3px 3px 0 0, $black 3px 3px 0 1px;
+}
+
+.randomButton:focus {
+  text-decoration: none;
+}
+
+.randomButton:hover {
+  text-decoration: none;
+}
+
+.randomButton:active {
+  box-shadow: rgba(0, 0, 0, 0.623) 0 3px 5px inset;
+  outline: 0;
+}
+
+.randomButton:not([disabled]):active {
+  box-shadow: $black 2px 2px 0 0, $black 2px 2px 0 1px;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .randomButton {
+    padding: 12px 50px;
+  }
+}

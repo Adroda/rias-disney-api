@@ -1,9 +1,14 @@
-function App() {
+import Header from './components/header/Header';
+import Card from './components/card/Card';
+import './App.scss';
+
+const App = () => {
   return (
-    <div className="App">
-      <p>hello world</p>
+    <div>
+      <Header />
+      <Card></Card>
     </div>
   );
-}
+};
 
 export default App;
