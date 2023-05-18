@@ -13,7 +13,7 @@ const Header = ({ card, setCard }) => {
       </section>
       </div>
       <div className="titulo">
-      <p>DISNEY CHARACTERS </p> 
+      <p className='title'>DISNEY CHARACTERS </p> 
       </div>
       <div className="cont">
       <SearchBar />

@@ -1,8 +1,6 @@
-import { fetchCharacter } from "../../services/DisneyServices";
 import "../../styles/card/card.scss";
 
 const Card = () => {
-  
   return(
     <div className="contenedor">
       <div className="character">
@@ -12,11 +10,8 @@ const Card = () => {
       <div className="characterInfo">
         <div>
           <h2 className="films">Films:</h2>
-          <p>{}</p>
         </div>
-
       </div>
-
     </div>
 
   );
