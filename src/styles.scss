@@ -1,0 +1,103 @@
+/***************************** BREAKPOINTS *********************************/
+
+$mobile: 375px;
+$tablet: 768px;
+$desktop: 1024px;
+
+@mixin media-mobile() {
+  @media (max-width: ($tablet)) {
+    @content;
+  }
+}
+
+@mixin media-tablet() {
+  @media (max-width: ($desktop)) and (min-width: ($tablet)) {
+    @content;
+  }
+}
+/***************************** TYPOGRAPHY *********************************/
+
+@mixin typography-h1() {
+    font-size: 48px;
+    font-weight: 700;
+    @include media-tablet() {
+      font-size: 32px;
+    }
+    @include media-mobile() {
+      font-size: 24px;
+    }
+  }
+  
+  @mixin typography-h2() {
+    font-size: 32px;
+    font-weight: 600;
+    @include media-tablet() {
+      font-size: 24px;
+    }
+    @include media-mobile() {
+      font-size: 20px;
+    }
+  }
+  
+  @mixin typography-h3() {
+    font-size: 24px;
+    font-weight: 700;
+    @include media-tablet() {
+      font-size: 20px;
+    }
+    @include media-mobile() {
+      font-size: 18px;
+    }
+  }
+  
+  @mixin typography-h4() {
+    font-size: 18px;
+    font-weight: 800;
+    @include media-tablet() {
+      font-size: 16px;
+    }
+    @include media-mobile() {
+      font-size: 14px;
+    }
+  }
+  
+  @mixin typography-p() {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    @include media-tablet() {
+      font-size: 14px;
+    }
+    @include media-mobile() {
+      font-size: 12px;
+    }
+  }
+  /************************** VARS ******************************/
+
+$red: #e01522;
+$redish: #f08a91;
+$purplish: #b4747f;
+$pink: #f8c5c8;
+$white: #ffffff;
+$skyblue1: #cdeae5;
+$skyblue3: #8098a4;
+$dustyWhite: #6fb9e4ea;
+$blue1: #438bb8b0;
+$blue2: #336683;
+$blue3: #003049;
+$black: #000000;
+$dustyWhite: #6fb9e4ea;
+$blue1: #438bb8b0;
+$blue2: #336683;
+$blue3: #003049;
+$blueDisney: #4682B4;
+
+/************************** FONTS ******************************/
+@font-face {
+    font-family: 'Disney';
+    src: url('../src/fonts/NewWaltDisneyFontRegular-BPen.ttf') format('truetype');
+  }
+@font-face {
+    font-family: 'Disney2';
+    src: url('../src/fonts/NewWaltDisney2.ttf') format('truetype');
+  }

@@ -1,18 +1,20 @@
+@import "../../styles.scss";
+
 .randomButton {
   appearance: button;
   background-color: #fff;
   background-image: none;
   border: 1px solid #fff;
   border-radius: 4px;
-  box-shadow: #000 4px 4px 0 0, #000 4px 4px 0 1px;
+  box-shadow: $blueDisney 4px 4px 0 0, $blueDisney 4px 4px 0 1px;
   box-sizing: border-box;
   color: #000;
   cursor: pointer;
   display: inline-block;
-  font-family: ITCAvantGardeStd-Bk, Arial, sans-serif;
+  font-family: 'Disney2', Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 10px;
   margin-right: 2rem;
   overflow: visible;
   padding: 12px 40px;
@@ -23,6 +25,8 @@
   -webkit-user-select: none;
   vertical-align: middle;
   white-space: nowrap;
+  height: 32px;
+  
 }
 
 .randomButton:focus {
@@ -34,7 +38,7 @@
 }
 
 .randomButton:active {
-  box-shadow: rgba(0, 0, 0, 0.125) 0 3px 5px inset;
+  box-shadow: rgba(0, 0, 0, 0.623) 0 3px 5px inset;
   outline: 0;
 }
 

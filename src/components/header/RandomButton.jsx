@@ -1,7 +1,7 @@
-import '../../styles/header/randomButton.css';
+import '../../styles/header/randomButton.scss';
 
 const RandomButton = ({ card, setCard }) => {
-  return <button class="randomButton">Random</button>;
+  return <button className="randomButton">Random</button>;
 };
 
 export default RandomButton;

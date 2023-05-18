@@ -1,14 +1,18 @@
+@import "../../styles.scss";
+
 .searchBarContainer {
   display: flex;
   align-items: center;
   margin: 0;
-  width: 302px;
+  width: 220px;
   height: 47px;
   align-self: center;
+
+  
 }
 
 .searchIcon {
-  background-color: white;
+  background-color: $blueDisney;
   height: 100%;
 }
 
@@ -16,7 +20,9 @@
   border: none;
   outline: none;
   height: 100%;
+  font-family: 'Disney2';
   padding-left: 0.5rem;
+  border-radius: 5px;
 }
 .searchBarContainer {
   height: 2rem;

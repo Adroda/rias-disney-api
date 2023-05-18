@@ -10,3 +10,4 @@ const fetchCharacter = (id) => {
 };
 
 export { fetchCharacter };
+ 
