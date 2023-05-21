@@ -6,17 +6,7 @@ import {
   fetchRandomCharacter,
 } from '../../services/DisneyServices';
 
-const Header = ({ card, setCard }) => {
-  let logger = async () => {
-    let randomCharacter = await fetchRandomCharacter();
-    /* let character = await fetchCharacter('Mickey Mouse');
-    console.log(
-      '🚀 ~ file: header.jsx:14 ~ logger ~ character:',
-      character.data
-    );*/
-  };
-  logger();
-
+const Header = ({ setCharacter }) => {
   return (
     <div className="header">
       <div className="logo">
@@ -29,8 +19,8 @@ const Header = ({ card, setCard }) => {
         <p className="title">DISNEY CHARACTERS </p>
       </div>
       <div className="cont">
-        <SearchBar />
-        <RandomButton />
+        <SearchBar  setCharacter={setCharacter}/>
+        <RandomButton setCharacter={setCharacter}/>
       </div>
     </div>
   );

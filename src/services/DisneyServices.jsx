@@ -6,7 +6,6 @@ let fetchCharacter = async (name) => {
   const URL = `${BASE_URL}?name=${name}`;
   const response = await fetch(URL);
   let data = await response.json();
-
   return data;
 };
 
@@ -18,6 +17,7 @@ let fetchRandomCharacter = async () => {
     const URL = `${BASE_URL}/${id}`;
     const response = await fetch(`${BASE_URL}/${id}`);
     data = await response.json();
+    console.log(data );
     count = data.info.count;
   }
   return data;
