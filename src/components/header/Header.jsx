@@ -1,12 +1,14 @@
 import SearchBar from './SearchBar';
 import RandomButton from './RandomButton';
 import '../../styles/header/header.scss';
-import {
-  fetchCharacter,
-  fetchRandomCharacter,
-} from '../../services/DisneyServices';
+import { useSpring, animated } from 'react-spring';
 
 const Header = ({ setCharacter }) => {
+  const props = useSpring({
+    from: { opacity: 0, transform: 'translateY(50px)' },
+    to: { opacity: 1, transform: 'translateY(0)' },
+    config: { duration: 1000 },
+  });
   return (
     <div className="header">
       <div className="logo">
@@ -16,7 +18,7 @@ const Header = ({ setCharacter }) => {
         </section>
       </div>
       <div className="titulo">
-        <p className="title">DISNEY CHARACTERS </p>
+      <animated.p style={props}>DISNEY CHARACTERS</animated.p>
       </div>
       <div className="cont">
         <SearchBar  setCharacter={setCharacter}/>
