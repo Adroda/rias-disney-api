@@ -11,7 +11,7 @@
   margin: 20px auto;
   width: 60%;
   background-color: $white;
-  opacity: 0.9;
+  opacity: 1;
 
   .character {
     display: flex;
@@ -22,13 +22,36 @@
     }
   }
 
-  .characterImage {
+  .characterImageGame {
     @include media-mobile() {
       width: 100%;
     }
+    filter: blur(5px);
   }
-}
-
-.contenedor:hover {
-  opacity: 1;
+  .mensaje {
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .error {
+    background-color: #ff0000;
+    color: #ffffff;
+    border-radius: 5px;
+    font-family: 'Disney2';
+  }
+  
+  .acierto {
+    background-color: #36af36fd;
+    color: #ffffff;
+    border-radius: 5px;
+    font-family: 'Disney2';
+  }
+  .gameText{
+    margin-top: 55px;
+    border: none;
+    outline: none;
+    font-family: 'Disney2';
+    padding-left: 50px;
+  }
 }

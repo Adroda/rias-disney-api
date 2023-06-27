@@ -1,0 +1,44 @@
+@import '../../styles.scss';
+
+.gameButton {
+    appearance: button;
+    background-color: $white;
+    background-image: none;
+    border: 1px solid $white;
+    border-radius: 4px;
+    color: $black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Disney2', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 10px;
+    margin-right: 2rem;
+    padding: 12px 40px;
+    text-align: center;
+  }
+  
+  .gameButton:focus {
+    text-decoration: none;
+  }
+  
+  .gameButton:hover {
+    background-color: $dustyWhite;
+  }
+  
+  .gameButton:active {
+    box-shadow: rgba(0, 0, 0, 0.623) 0 3px 5px inset;
+    outline: 0;
+  }
+  
+  .gameButton:not([disabled]):active {
+    box-shadow: $black 2px 2px 0 0, $black 2px 2px 0 1px;
+    transform: translate(2px, 2px);
+  }
+  
+  @media (min-width: 768px) {
+    .gameButton {
+      padding: 12px 50px;
+    }
+  }
+  

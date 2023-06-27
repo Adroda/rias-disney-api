@@ -1,10 +1,11 @@
 import { fetchRandomCharacter } from '../../services/DisneyServices';
 import './randomButton.scss';
 
-const RandomButton = ({ setCharacter }) => {
+const RandomButton = ({ setCharacter, setShowGame }) => {
   let handleClick = async () => {
     let response = await fetchRandomCharacter();
     setCharacter(response.data);
+    setShowGame(null)
   };
 
   return (
