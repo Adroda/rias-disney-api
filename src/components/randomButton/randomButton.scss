@@ -1,4 +1,4 @@
-@import "../../styles.scss";
+@import '../../styles.scss';
 
 .randomButton {
   appearance: button;
@@ -6,8 +6,6 @@
   background-image: none;
   border: 1px solid $white;
   border-radius: 4px;
-  box-shadow: $blueDisney 4px 4px 0 0, $blueDisney 4px 4px 0 1px;
-  box-sizing: border-box;
   color: $black;
   cursor: pointer;
   display: inline-block;
@@ -16,17 +14,8 @@
   font-weight: 400;
   line-height: 10px;
   margin-right: 2rem;
-  overflow: visible;
   padding: 12px 40px;
   text-align: center;
-  text-transform: none;
-  touch-action: manipulation;
-  user-select: none;
-  -webkit-user-select: none;
-  vertical-align: middle;
-  white-space: nowrap;
-  height: 32px;
-  box-shadow: $black 3px 3px 0 0, $black 3px 3px 0 1px;
 }
 
 .randomButton:focus {
@@ -34,7 +23,7 @@
 }
 
 .randomButton:hover {
-  text-decoration: none;
+  background-color: $dustyWhite;
 }
 
 .randomButton:active {
