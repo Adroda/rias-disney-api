@@ -1,18 +1,16 @@
-import { fetchRandomCharacter } from '../../services/DisneyServices';
 import './gameButton.scss';
+import PlayIcon from '../../assets/play.png';
 
-const GameButton = ({ setCharacter, setShowGame }) => {
-    let handleClick = async () => {
-      let response = await fetchRandomCharacter();
-      setCharacter(response.data);
-      setShowGame(true);
-    };
-  
-    return (
-      <button className='gameButton' onClick={handleClick}>
-        Play
-      </button>
-    );
+const GameButton = ({ setShowGame }) => {
+  let handleClick = async () => {
+    setShowGame(true);
   };
 
-  export default GameButton
+  return (
+    <button className='gameButton' onClick={handleClick}>
+      <img className='playIcon' src={PlayIcon} alt='Search icon' />
+    </button>
+  );
+};
+
+export default GameButton;

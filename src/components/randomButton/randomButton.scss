@@ -1,21 +1,17 @@
 @import '../../styles.scss';
 
 .randomButton {
-  appearance: button;
-  background-color: $white;
-  background-image: none;
-  border: 1px solid $white;
-  border-radius: 4px;
-  color: $black;
+  position: relative;
+  background-color: transparent;
+  border: none;
   cursor: pointer;
-  display: inline-block;
-  font-family: 'Disney2', Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 10px;
-  margin-right: 2rem;
-  padding: 12px 40px;
-  text-align: center;
+  margin: 5px;
+  border: 2px solid $blue1;
+  border-radius: 50px;
+  padding: 10px 10px;
+  .randomIcon {
+    height: 30px;
+  }
 }
 
 .randomButton:focus {
@@ -29,15 +25,4 @@
 .randomButton:active {
   box-shadow: rgba(0, 0, 0, 0.623) 0 3px 5px inset;
   outline: 0;
-}
-
-.randomButton:not([disabled]):active {
-  box-shadow: $black 2px 2px 0 0, $black 2px 2px 0 1px;
-  transform: translate(2px, 2px);
-}
-
-@media (min-width: 768px) {
-  .randomButton {
-    padding: 12px 50px;
-  }
 }

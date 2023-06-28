@@ -1,79 +1,90 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
+import { fetchRandomCharacter } from '../../services/DisneyServices';
 import './gameCard.scss';
-import { fetchCharacter } from '../../services/DisneyServices';
 
-const GameCard = ({ character }) => {
-
-  const [blurIntensity, setBlurIntensity] = useState(5);
-  const [mensaje, setMensaje] = useState ("");
-  const [status, setStatus]  = useState (false);
-  let aux;
+const GameCard = ({ setGameCard }) => {
+  const status = {
+    inicio: 'iniciando',
+    correcto: 'Correcto!',
+    incorrecto: 'Vuelve a intentarlo',
+  };
   const inputRef = useRef(null);
-  let hideCharacterName = true;
-  console.log("Aca el character" + character.name);
-  /// usar use effect para cargar character
+  const [blurIntensity, setBlurIntensity] = useState(5);
+  const [mensaje, setMensaje] = useState(null);
+  const [character, setCharacter] = useState(status.inicio);
+  const [hideCharacterName, setHideCharacterName] = useState(true);
 
   useEffect(() => {
-    const msj = setTimeout(() => {    
-      setMensaje(null);
-    }, 5000);
-  }, [mensaje]);
+    setHideCharacterName(true);
+    setMensaje(status.inicio);
+    getCharacter();
+  }, []);
 
-  
-  
+  const getCharacter = async () => {
+    let response = await fetchRandomCharacter();
+    setBlurIntensity(5);
+    setHideCharacterName(true);
+    setMensaje(status.inicio);
+    console.log(response.data.name);
+    setCharacter(response.data);
+  };
 
-  let inputValue;
   let handleEnter = async (event) => {
     if (event.key === 'Enter') {
-     inputValue = event.target.value.toUpperCase();
-     console.log(event.target.value);
-     let name = character.name.toUpperCase()
-    //let response = await fetchCharacter(inputValue);
-    if(name === inputValue){
-      hideCharacterName = false; 
-      setMensaje("CORRECTO!")
-      setBlurIntensity(0)
-      setStatus(true)
-    /*  const aa = setTimeout(() => {    
-        setBlurIntensity(5)  
-      }, 3000);
-        */
-    }else{
-      aux = blurIntensity;
-      aux --;
-      setMensaje("Vuelve a intentarlo")
-      if(aux > 0){
-        setBlurIntensity(aux)
-      } else{
+      let inputValue = inputRef.current.value.toUpperCase();
+      let name = character.name.toUpperCase();
+      if (name === inputValue) {
+        setHideCharacterName(false);
+        setMensaje(status.correcto);
         setBlurIntensity(0);
-      }   
-    }
-    event.target.value = '';   
+      } else {
+        setMensaje(status.incorrecto);
+        blurIntensity > 0
+          ? setBlurIntensity(blurIntensity - 1)
+          : setBlurIntensity(blurIntensity);
+      }
+      event.target.value = '';
     }
   };
 
   return (
-    <div className='contenedor'>
+    <div className='game-contenedor'>
       <div className='character'>
-        {hideCharacterName ? null : <h1 className='characterName'>{character.name}</h1>}
-        <img 
-        className='characterImageGame' 
-        src={character.imageUrl} 
-        alt=''
-        style={{ filter: `blur(${blurIntensity}px)` }}></img>
+        {hideCharacterName ? null : (
+          <h1 className='characterName'>{character.name}</h1>
+        )}
+        <img
+          className='characterImageGame'
+          src={character.imageUrl}
+          alt='character'
+          style={{ filter: `blur(${blurIntensity}px)` }}
+        ></img>
       </div>
-      <div className='characterInfoGame'>
-        <input
-          className='gameText'
-          type='text'
-          placeholder='Guess the character'
-          ref={inputRef}
-          onKeyDown={handleEnter}
-        />
-      </div>
-      <div className='msj'>
-        {mensaje && <p className={`mensaje ${mensaje.length > 10 ? 'error' : 'acierto'}`}>{mensaje}</p>}
-      </div>
+      <input
+        className='gameText'
+        type='text'
+        placeholder='Guess the character'
+        ref={inputRef}
+        onKeyDown={handleEnter}
+      />
+      {mensaje !== status.inicio ? (
+        <div className='msj'>
+          {mensaje === status.correcto ? (
+            <>
+              <p className='acierto'>{status.correcto}</p>
+              <button className='gameButton' onClick={() => getCharacter()}>
+                Jugar de nuevo!
+              </button>
+            </>
+          ) : (
+            <p className='error'>{status.incorrecto}</p>
+          )}
+        </div>
+      ) : (
+        <button className='gameButton' onClick={() => getCharacter()}>
+          Siguiente
+        </button>
+      )}
     </div>
   );
 };

@@ -11,7 +11,11 @@ const App = () => {
   return (
     <div>
       <Header setCharacter={setCharacter} setShowGame={setShowGame} />
-      {showGame ? <GameCard character={character} /> : <Card character={character} />}
+      {showGame ? (
+        <GameCard setShowGame={setShowGame} />
+      ) : (
+        <Card character={character} />
+      )}
     </div>
   );
 };
