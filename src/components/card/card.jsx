@@ -26,8 +26,8 @@ const Card = () => {
             <div className='films'>
               <h2 className='films'>Peliculas:</h2>
               <ul>
-                {character.films.map((film, index) => (
-                  <li className='filmtitle' key={index}>
+                {character.films.map((film) => (
+                  <li className='filmtitle' key={film}>
                     {film}
                   </li>
                 ))}
@@ -42,8 +42,8 @@ const Card = () => {
             <div className='films'>
               <h2 className='films'>Series:</h2>
               <ul>
-                {character.tvShows.map((tvShow, index) => (
-                  <li className='filmtitle' key={index}>
+                {character.tvShows.map((tvShow) => (
+                  <li className='filmtitle' key={tvShow}>
                     {tvShow}
                   </li>
                 ))}

@@ -17,13 +17,13 @@
     display: flex;
     flex-direction: column;
     .characterName {
-      font-family: 'Disney';
+      font-family: 'Disney', sans-serif;
       margin: auto;
     }
   }
 
   .characterInfo {
-    font-family: 'Disney';
+    font-family: 'Disney', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,7 +35,7 @@
 
       .filmtitle {
         font-size: x-large;
-        font-family: 'Disney';
+        font-family: 'Disney', sans-serif;
       }
     }
   }

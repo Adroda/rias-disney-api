@@ -5,12 +5,12 @@
   align-items: center;
   margin: 0;
   align-self: center;
+  height: 2rem;
 }
 
 .search {
   position: relative;
   background-color: transparent;
-  border: none;
   cursor: pointer;
   margin: 5px;
   border: 2px solid $blue1;
@@ -38,11 +38,7 @@
   border: none;
   outline: none;
   height: 100%;
-  font-family: 'Disney2';
+  font-family: 'Disney2', sans-serif;
   padding-left: 0.5rem;
   border-radius: 5px;
-}
-
-.searchBarContainer {
-  height: 2rem;
 }
