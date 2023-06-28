@@ -1,4 +1,4 @@
-# Disney API app - Grupo ??
+# Disney API app - Grupo Iglesias-Bronc-Gioda
 
 Este proyecto fue creado con [Create React App](https://github.com/facebook/create-react-app).
 
