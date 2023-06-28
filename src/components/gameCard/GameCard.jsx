@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { fetchRandomCharacter } from '../../services/DisneyServices';
 import './gameCard.scss';
 
-const GameCard = ({ setGameCard }) => {
+const GameCard = () => {
   const status = {
     inicio: 'iniciando',
     correcto: 'Correcto!',
@@ -10,11 +10,12 @@ const GameCard = ({ setGameCard }) => {
   };
   const inputRef = useRef(null);
   const [blurIntensity, setBlurIntensity] = useState(5);
-  const [mensaje, setMensaje] = useState(null);
-  const [character, setCharacter] = useState(status.inicio);
+  const [mensaje, setMensaje] = useState(status.inicio);
+  const [character, setCharacter] = useState(null);
   const [hideCharacterName, setHideCharacterName] = useState(true);
 
   useEffect(() => {
+    console.log('yes');
     setHideCharacterName(true);
     setMensaje(status.inicio);
     getCharacter();
@@ -22,6 +23,7 @@ const GameCard = ({ setGameCard }) => {
 
   const getCharacter = async () => {
     let response = await fetchRandomCharacter();
+    setCharacter(response.data);
     setBlurIntensity(5);
     setHideCharacterName(true);
     setMensaje(status.inicio);
@@ -29,7 +31,6 @@ const GameCard = ({ setGameCard }) => {
     if (inputRef.current) {
       inputRef.current.value = '';
     }
-    setCharacter(response.data);
   };
 
   let handleEnter = async (event) => {
@@ -52,36 +53,49 @@ const GameCard = ({ setGameCard }) => {
 
   return (
     <div className='game-contenedor'>
-      <div className='character'>
-        {hideCharacterName ? null : (
-          <h1 className='characterName'>{character.name}</h1>
-        )}
-        <img
-          className='characterImageGame'
-          src={character.imageUrl}
-          alt='character'
-          style={{ filter: `blur(${blurIntensity}px)` }}
-        ></img>
-      </div>
-      <input
-        className='gameText'
-        type='text'
-        placeholder='Guess the character'
-        ref={inputRef}
-        onKeyDown={handleEnter}
-      />
-      {mensaje !== status.inicio ? (
-        <div className='msj'>
-          {mensaje === status.correcto ? (
-            <>
-              <p className='acierto'>{status.correcto}</p>
-              <button className='gameButton' onClick={() => getCharacter()}>
-                Jugar de nuevo!
-              </button>
-            </>
+      {character ? (
+        <>
+          <div className='character'>
+            {hideCharacterName ? null : (
+              <h1 className='characterName'>{character.name}</h1>
+            )}
+            <img
+              className='characterImageGame'
+              src={character.imageUrl}
+              alt='character'
+              style={{ filter: `blur(${blurIntensity}px)` }}
+            ></img>
+          </div>
+          <input
+            className='gameText'
+            type='text'
+            placeholder='Guess the character'
+            ref={inputRef}
+            onKeyDown={handleEnter}
+          />
+          {mensaje !== status.inicio ? (
+            <div className='msj'>
+              {mensaje === status.correcto ? (
+                <>
+                  <p className='acierto'>{status.correcto}</p>
+                  <button className='gameButton' onClick={() => getCharacter()}>
+                    Jugar de nuevo!
+                  </button>
+                </>
+              ) : (
+                <>
+                  <p className='error'>{status.incorrecto}</p>
+                  <button className='gameButton' onClick={handleEnter}>
+                    Ingresar
+                  </button>
+                  <button className='gameButton' onClick={() => getCharacter()}>
+                    Siguiente
+                  </button>
+                </>
+              )}
+            </div>
           ) : (
             <>
-              <p className='error'>{status.incorrecto}</p>
               <button className='gameButton' onClick={handleEnter}>
                 Ingresar
               </button>
@@ -90,17 +104,8 @@ const GameCard = ({ setGameCard }) => {
               </button>
             </>
           )}
-        </div>
-      ) : (
-        <>
-          <button className='gameButton' onClick={handleEnter}>
-            Ingresar
-          </button>
-          <button className='gameButton' onClick={() => getCharacter()}>
-            Siguiente
-          </button>
         </>
-      )}
+      ) : null}
     </div>
   );
 };

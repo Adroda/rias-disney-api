@@ -1,16 +1,13 @@
 import './gameButton.scss';
 import PlayIcon from '../../assets/play.png';
+import { Link } from 'react-router-dom';
 
-const GameButton = ({ setShowGame }) => {
-  let handleClick = async () => {
-    setShowGame(true);
-  };
-
+const gameButton = () => {
   return (
-    <button className='gameButton' onClick={handleClick}>
+    <Link className='gameButton' to='/game'>
       <img className='playIcon' src={PlayIcon} alt='Search icon' />
-    </button>
+    </Link>
   );
 };
 
-export default GameButton;
+export default gameButton;

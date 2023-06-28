@@ -1,23 +1,12 @@
 import './card.scss';
-import { useSpring, animated } from 'react-spring';
+import { CharacterContext } from '../../App';
+import { useContext } from 'react';
 
-const Card = ({ character }) => {
+const Card = () => {
+  const { character } = useContext(CharacterContext);
   console.log(character);
-  const props = useSpring({
-    // from: { /*opacity: 0, */ transform: 'translateX(60px)' },
-    // to: { /*opacity: 0.6,*/ transform: 'translateX(10px)' },
-    // config: { duration: 1000 },
-  });
 
-  if (!character) {
-    return (
-      <div className='contenedor'>
-        <div className='character'>
-          <h1 className='characterName'>BIENVENIDO</h1>
-        </div>
-      </div>
-    );
-  } else if (character.length > 1) {
+  if (!character || character.length === 0 || character.length > 1) {
     return (
       <div className='contenedor'>
         <div className='character'>
@@ -27,7 +16,7 @@ const Card = ({ character }) => {
     );
   } else {
     return (
-      <animated.div style={props} className='contenedor'>
+      <div className='contenedor'>
         <div className='character'>
           <h1 className='characterName'>{character.name}</h1>
           <img className='characterImage' src={character.imageUrl} alt=''></img>
@@ -66,7 +55,7 @@ const Card = ({ character }) => {
             </div>
           )}
         </div>
-      </animated.div>
+      </div>
     );
   }
 };

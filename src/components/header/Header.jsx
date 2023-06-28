@@ -1,10 +1,11 @@
-import SearchBar from '../searchBar/SearchBar';
-import RandomButton from '../randomButton/RandomButton';
-import GameButton from '../gameButton/GameButton';
+import SearchBar from '../searchBar/searchBar';
+import RandomButton from '../randomButton/randomButton';
+import GameButton from '../gameButton/gameButton';
 import MickeyIcon from '../../assets/mickey.png';
 import './header.scss';
+import { Link } from 'react-router-dom';
 
-const Header = ({ setCharacter, setShowGame }) => {
+const Header = () => {
   return (
     <div className='header'>
       <div className='logo'>
@@ -13,19 +14,13 @@ const Header = ({ setCharacter, setShowGame }) => {
           <div className='logo-bottom'>DISNEY APP</div>
         </section>
       </div>
-      <button
-        className='inicioButton'
-        onClick={() => {
-          setCharacter(null);
-          setShowGame(false);
-        }}
-      >
+      <Link className='inicioButton' to='/'>
         <img className='playIcon' src={MickeyIcon} alt='play icon' />
-      </button>
+      </Link>
       <div className='cont'>
-        <SearchBar setCharacter={setCharacter} setShowGame={setShowGame} />
-        <RandomButton setCharacter={setCharacter} setShowGame={setShowGame} />
-        <GameButton setCharacter={setCharacter} setShowGame={setShowGame} />
+        <SearchBar />
+        <RandomButton />
+        <GameButton />
       </div>
     </div>
   );

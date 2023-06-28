@@ -1,22 +1,27 @@
-import Header from './components/header/Header';
-import Card from './components/card/Card';
-import GameCard from './components/gameCard/GameCard';
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/header/header';
+import Home from './pages/home/homePage';
+import CharacterPage from './pages/character/characterPage';
+import GamePage from './pages/game/gamePage';
 import './App.scss';
-import { useState } from 'react';
+import { useState, createContext } from 'react';
+
+export const CharacterContext = createContext();
 
 const App = () => {
-  const [character, setCharacter] = useState();
-  const [showGame, setShowGame] = useState();
+  const [character, setCharacter] = useState(null);
 
   return (
-    <div>
-      <Header setCharacter={setCharacter} setShowGame={setShowGame} />
-      {showGame ? (
-        <GameCard setShowGame={setShowGame} />
-      ) : (
-        <Card character={character} />
-      )}
-    </div>
+    <CharacterContext.Provider value={{ character, setCharacter }}>
+      <div>
+        <Header />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/character' element={<CharacterPage />} />
+          <Route path='/game' element={<GamePage />} />
+        </Routes>
+      </div>
+    </CharacterContext.Provider>
   );
 };
 
