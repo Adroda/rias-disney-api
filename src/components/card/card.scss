@@ -24,6 +24,9 @@
 
   .characterInfo {
     font-family: 'Disney';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     .films {
       display: flex;

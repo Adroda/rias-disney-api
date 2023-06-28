@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { fetchRandomCharacter } from '../../services/DisneyServices';
 import './gameCard.scss';
 
@@ -26,11 +26,14 @@ const GameCard = ({ setGameCard }) => {
     setHideCharacterName(true);
     setMensaje(status.inicio);
     console.log(response.data.name);
+    if (inputRef.current) {
+      inputRef.current.value = '';
+    }
     setCharacter(response.data);
   };
 
   let handleEnter = async (event) => {
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter' || event.type === 'click') {
       let inputValue = inputRef.current.value.toUpperCase();
       let name = character.name.toUpperCase();
       if (name === inputValue) {
@@ -43,7 +46,7 @@ const GameCard = ({ setGameCard }) => {
           ? setBlurIntensity(blurIntensity - 1)
           : setBlurIntensity(blurIntensity);
       }
-      event.target.value = '';
+      inputRef.current.value = '';
     }
   };
 
@@ -77,13 +80,26 @@ const GameCard = ({ setGameCard }) => {
               </button>
             </>
           ) : (
-            <p className='error'>{status.incorrecto}</p>
+            <>
+              <p className='error'>{status.incorrecto}</p>
+              <button className='gameButton' onClick={handleEnter}>
+                Ingresar
+              </button>
+              <button className='gameButton' onClick={() => getCharacter()}>
+                Siguiente
+              </button>
+            </>
           )}
         </div>
       ) : (
-        <button className='gameButton' onClick={() => getCharacter()}>
-          Siguiente
-        </button>
+        <>
+          <button className='gameButton' onClick={handleEnter}>
+            Ingresar
+          </button>
+          <button className='gameButton' onClick={() => getCharacter()}>
+            Siguiente
+          </button>
+        </>
       )}
     </div>
   );

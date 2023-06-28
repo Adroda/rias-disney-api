@@ -12,13 +12,17 @@ const SearchBar = ({ setCharacter, setShowGame }) => {
       let response = await fetchCharacter(inputValue);
       setShowGame(false);
       setCharacter(response.data);
+      event.target.value = '';
     }
   };
 
   const handleClick = async () => {
-    let response = await fetchCharacter(inputRef.current.value);
-    setShowGame(false);
-    setCharacter(response.data);
+    if (inputRef.current.value) {
+      let response = await fetchCharacter(inputRef.current.value);
+      setShowGame(false);
+      setCharacter(response.data);
+      inputRef.current.value = '';
+    }
   };
 
   return (

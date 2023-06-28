@@ -19,11 +19,13 @@
     flex-direction: column;
     .characterName {
       font-family: 'Disney';
-      margin: auto;
+      margin: 10px auto;
     }
   }
 
   .characterImageGame {
+    height: 300px;
+    width: auto;
     @include media-mobile() {
       width: 100%;
     }
