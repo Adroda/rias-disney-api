@@ -56,7 +56,8 @@ $ npm start
 ## Diseño del sistema
 
 La arquitectura de este proyecto esta basada en componentes.\
-Consiste de una capa de servicios con la cual nos conectamos a la API Rest publica 'DisneyAPI'\
+Consiste de una capa de servicios con la cual nos conectamos a la API Rest publica 'DisneyAPI', \
+en donde usamos comunicacion asincrónica con la misma (uso de `async` y `await`), \
 y una interfaz de usuario, en la cual tenemos multiples vistas.\
 La navegacion de las mismas fue lograda utilizando `react-router-dom`,\
 una libreria de enrutamiento. Los estilos y diseños de la aplicacion\
@@ -106,3 +107,12 @@ un gran volumen de datos, conteniendo en ella 7438 personajes. Las opciones que 
 | Como usuario, quiero iniciar el juego haciendo clic en el botón correspondiente, para que se muestre un personaje con una imagen borrosa. |
 | Como usuario, quiero recibir retroalimentación inmediata después de adivinar el nombre del personaje, para saber si mi respuesta fue correcta o incorrecta. |
 | Como usuario, quiero poder reiniciar el juego después de adivinar el personaje o cambiar de personaje durante el juego |
+
+## Elecciones de usabilidad
+
+- Diseño intuitivo: Hicimos uso de un diseño simple dado el numero de paginas que contiene la aplicacion.
+- Facilidad de navegacion: Hacemos uso de componentes de react los cuales nos permiten navegar entre paginas sin necesidad de recargarlas.
+- Accesibilidad: Nuestros campos para ingresar texto, admiten el uso del teclado.
+- Uso adecuado de colores: Nuestra paleta de colores cumple con los requisitos para alcanzar AAA.
+- Retroalimentacion Visual: A la hora de jugar en nuestra aplicacion, tanto en caso de error como en caso de acierto mostramos un mensaje!
+
