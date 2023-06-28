@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+# Disney API app - Grupo ??
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto fue creado con [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Scripts Disponibles
 
-In the project directory, you can run:
+En el directorio del proyecto, puedes ejecutar:
 
 ### `npm start`
+Ejecuta la aplicación en modo de desarrollo.\
+Abre [http://localhost:3000](http://localhost:3000) para verlo en tu navegador.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+La página se recargará automáticamente cuando realices cambios.\
+También podrás ver errores de lint en la consola.
 
 ### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Inicia el runner de pruebas en modo interactivo.
 
 ### `npm run build`
+Compila la aplicación para producción en la carpeta build.
+Agrupa correctamente React en modo de producción y optimiza la compilación para obtener el mejor rendimiento.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+La compilación se minifica y los nombres de archivo incluyen los hashes.
+¡Tu aplicación está lista para implementarse!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Instalacion
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Comprueba que estas utilizando Node 19.x.x y NPM 9.x.x en tu ambiente de desarrollo
 
-### `npm run eject`
+```properties
+$ node -v
+$ npm -v
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Clonar el repositorio de GitHub
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```properties
+$ git clone https://github.com/Adroda/rias-disney-api.git
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Instalar librerias 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Ejecutar:
+```properties
+$ npm i
+```
+Para instalar las librerias/modulos necesarios para correr la aplicacion!
 
-## Learn More
+### Servidor local
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```properties
+# http://localhost:3000
+$ npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Diseño del sistema
 
-### Code Splitting
+La arquitectura de este proyecto esta basada en componentes.\
+Consiste de una capa de servicios con la cual nos conectamos a la API Rest publica 'DisneyAPI'\
+y una interfaz de usuario, en la cual tenemos multiples vistas.\
+La navegacion de las mismas fue lograda utilizando `react-router-dom`,\
+una libreria de enrutamiento. Los estilos y diseños de la aplicacion\
+fueron realizados con el pre-procesador de CSS conocido como SCSS (Sassy Cascading Style Sheets).\
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## Descripcion de tecnologias
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Framework: React
+  
+- Lenguaje: JavaScript
 
-### Making a Progressive Web App
+- Web Service: RESTful API
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Herramientas de desarrollo: Visual Studio Code, SonarLint, Git, GitHub
+  
+- Despliegue: Docker
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+## Mock ups y mapa de navegacion
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+[Archivo FIGMA](https://www.figma.com/file/azS8MEjsSMHse86ayRf7JT/RIASLAB?type=design&node-id=0%3A1&mode=design&t=648OzV1zeETHKO57-1)
 
-### `npm run build` fails to minify
+## Descripcion del servicio rest utilizado:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Hemos decidido usar [disneyapi.dev](http://disneyapi.dev/) una API de disney ya que contiene \
+un gran volumen de datos, conteniendo en ella 7438 personajes. Las opciones que ofrece son: \
+- Obtener todos los personajes
+- Obtener un personaje por su id
+- Obtener un personaje por un parámetro en especifico ej: nombre, entre otras opciones.
+
+
+## Historias de usuario 
+
+| Buscar personaje por nombre |
+| --------------------------- |
+| Como usuario quiero poder buscar un personaje por su nombre para obtener mas informacion del mismo |
+
+| Obtener informacion basica |
+| --------------------------- |
+| Como usuario  quiero ver la información básica del personaje aleatorio, como su nombre, una imagen y si participó en películas o series |
+
+| Juego |
+| --------------------------- |
+| Como usuario, quiero iniciar el juego haciendo clic en el botón correspondiente, para que se muestre un personaje con una imagen borrosa. |
+| Como usuario, quiero recibir retroalimentación inmediata después de adivinar el nombre del personaje, para saber si mi respuesta fue correcta o incorrecta. |
+| Como usuario, quiero poder reiniciar el juego después de adivinar el personaje o cambiar de personaje durante el juego |
