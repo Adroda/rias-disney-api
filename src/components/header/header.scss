@@ -1,0 +1,85 @@
+@import '../../styles.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  /*background: linear-gradient(180deg, #5fe19b 0%, #36b972 50%, #0ea152 100%);*/
+  background-color: $blueDisney;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  // height: 5rem;
+  align-items: center;
+  @include media-mobile() {
+    justify-content: space-around;
+  }
+
+  .logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: 'Disney2';
+    font-size: xx-large;
+    color: $white;
+    @include media-mobile() {
+      display: none;
+    }
+  }
+
+  .inicioButton {
+    background-color: transparent;
+    border-radius: 50px;
+    border: none;
+    color: $black;
+    cursor: pointer;
+  }
+
+  .inicioButton:focus {
+    text-decoration: none;
+  }
+
+  .inicioButton:hover {
+    background-color: $dustyWhite;
+  }
+
+  .cont {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-end;
+    align-items: center;
+    @include media-mobile() {
+      margin-left: 20px;
+    }
+  }
+
+  .logo-wrapper {
+    display: grid;
+    place-content: center;
+    font-family: 'Disney2', sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: $white;
+    margin-left: 1.5rem;
+  }
+
+  .logo-wrapper > div {
+    grid-area: 1/1/-1/-1;
+  }
+
+  .logo-top {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 48%, 0% 58%);
+  }
+
+  .logo-bottom {
+    clip-path: polygon(0% 60%, 100% 50%, 100% 100%, 0% 100%);
+    background: -webkit-linear-gradient(177deg, $black 53%, $black 65%);
+    background: linear-gradient(177deg, $black 53%, $black 65%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    transform: translateX(-0.02em);
+  }
+}

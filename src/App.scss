@@ -1,0 +1,14 @@
+@import "./styles.scss";
+body {
+  margin: 0;
+  /*.backgroundWallpaper{
+    background-image: 
+    url(../public/disneysw.jpg) ;
+    height:1000px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }*/
+  background-image: url(../src/assets/disneysw.jpg);
+  background-size:cover;
+}

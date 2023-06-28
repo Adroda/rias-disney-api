@@ -1,0 +1,88 @@
+@import '../../styles.scss';
+
+.game-contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0px 2px 2px 3px rgba(0, 0, 0, 0.2);
+  border: 2px solid $blueDisney;
+  border-radius: 20px;
+  margin: 20px auto;
+  width: 60%;
+  background-color: $white;
+  opacity: 1;
+  text-align: center;
+
+  .character {
+    display: flex;
+    flex-direction: column;
+    .characterName {
+      font-family: 'Disney';
+      margin: 10px auto;
+    }
+  }
+
+  .characterImageGame {
+    height: 300px;
+    width: auto;
+    @include media-mobile() {
+      width: 100%;
+    }
+    filter: blur(5px);
+  }
+
+  .error {
+    background-color: #ff0000;
+    color: #ffffff;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: 'Disney2';
+  }
+
+  .acierto {
+    background-color: #36af36fd;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: 'Disney2';
+  }
+
+  .gameText {
+    margin-top: 55px;
+    border: 2px solid $dustyWhite;
+    outline: none;
+    height: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-family: 'Disney2';
+  }
+
+  .gameButton {
+    background-color: $blueDisney;
+    border-radius: 15px;
+    border: 2px solid $blueDisney;
+    color: $black;
+    cursor: pointer;
+    font-family: 'Disney2', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 10px;
+    margin-top: 10px;
+    padding: 12px 40px;
+  }
+
+  .gameButton:focus {
+    text-decoration: none;
+  }
+
+  .gameButton:hover {
+    background-color: $dustyWhite;
+    border: 2px solid $dustyWhite;
+  }
+
+  .gameButton:active {
+    box-shadow: rgba(0, 0, 0, 0.623) 0 3px 5px inset;
+    outline: 0;
+  }
+}
