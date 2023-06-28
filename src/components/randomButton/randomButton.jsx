@@ -1,12 +1,18 @@
+import { useNavigate } from 'react-router-dom';
 import { fetchRandomCharacter } from '../../services/DisneyServices';
 import RandomIcon from '../../assets/reload.png';
 import './randomButton.scss';
+import { useContext } from 'react';
+import { CharacterContext } from '../../App';
 
-const RandomButton = ({ setCharacter, setShowGame }) => {
+const RandomButton = () => {
+  const { setCharacter } = useContext(CharacterContext);
+  let navigate = useNavigate();
+
   let handleClick = async () => {
     let response = await fetchRandomCharacter();
     setCharacter(response.data);
-    setShowGame(null);
+    navigate('/character');
   };
 
   return (

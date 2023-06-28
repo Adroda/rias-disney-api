@@ -1,17 +1,22 @@
-import { useRef } from 'react';
+import { useContext, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import SearchIcon from '../../assets/search-bar.png';
 import { fetchCharacter } from '../../services/DisneyServices';
 import './searchBar.scss';
+import { CharacterContext } from '../../App';
 
-const SearchBar = ({ setCharacter, setShowGame }) => {
+const SearchBar = () => {
+  let navigate = useNavigate();
   const inputRef = useRef(null);
+  const { setCharacter } = useContext(CharacterContext);
   let inputValue;
+
   let handleEnter = async (event) => {
     if (event.key === 'Enter') {
       inputValue = event.target.value;
       let response = await fetchCharacter(inputValue);
-      setShowGame(false);
       setCharacter(response.data);
+      navigate('/character');
       event.target.value = '';
     }
   };
@@ -19,8 +24,8 @@ const SearchBar = ({ setCharacter, setShowGame }) => {
   const handleClick = async () => {
     if (inputRef.current.value) {
       let response = await fetchCharacter(inputRef.current.value);
-      setShowGame(false);
       setCharacter(response.data);
+      navigate('/character');
       inputRef.current.value = '';
     }
   };
