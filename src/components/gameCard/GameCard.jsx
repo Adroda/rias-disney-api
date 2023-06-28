@@ -2,7 +2,11 @@ import { useEffect, useRef, useState } from 'react';
 import { fetchRandomCharacter } from '../../services/DisneyServices';
 import './gameCard.scss';
 
+<<<<<<< HEAD
 const GameCard = () => {
+=======
+const GameCard = ({ setGameCard }) => {
+>>>>>>> origin
   const status = {
     inicio: 'iniciando',
     correcto: 'Correcto!',
@@ -10,12 +14,20 @@ const GameCard = () => {
   };
   const inputRef = useRef(null);
   const [blurIntensity, setBlurIntensity] = useState(5);
+<<<<<<< HEAD
   const [mensaje, setMensaje] = useState(status.inicio);
   const [character, setCharacter] = useState(null);
   const [hideCharacterName, setHideCharacterName] = useState(true);
 
   useEffect(() => {
     console.log('yes');
+=======
+  const [mensaje, setMensaje] = useState(null);
+  const [character, setCharacter] = useState(status.inicio);
+  const [hideCharacterName, setHideCharacterName] = useState(true);
+
+  useEffect(() => {
+>>>>>>> origin
     setHideCharacterName(true);
     setMensaje(status.inicio);
     getCharacter();
@@ -23,7 +35,10 @@ const GameCard = () => {
 
   const getCharacter = async () => {
     let response = await fetchRandomCharacter();
+<<<<<<< HEAD
     setCharacter(response.data);
+=======
+>>>>>>> origin
     setBlurIntensity(5);
     setHideCharacterName(true);
     setMensaje(status.inicio);
@@ -31,6 +46,10 @@ const GameCard = () => {
     if (inputRef.current) {
       inputRef.current.value = '';
     }
+<<<<<<< HEAD
+=======
+    setCharacter(response.data);
+>>>>>>> origin
   };
 
   let handleEnter = async (event) => {
@@ -53,6 +72,7 @@ const GameCard = () => {
 
   return (
     <div className='game-contenedor'>
+<<<<<<< HEAD
       {character ? (
         <>
           <div className='character'>
@@ -96,6 +116,38 @@ const GameCard = () => {
             </div>
           ) : (
             <>
+=======
+      <div className='character'>
+        {hideCharacterName ? null : (
+          <h1 className='characterName'>{character.name}</h1>
+        )}
+        <img
+          className='characterImageGame'
+          src={character.imageUrl}
+          alt='character'
+          style={{ filter: `blur(${blurIntensity}px)` }}
+        ></img>
+      </div>
+      <input
+        className='gameText'
+        type='text'
+        placeholder='Guess the character'
+        ref={inputRef}
+        onKeyDown={handleEnter}
+      />
+      {mensaje !== status.inicio ? (
+        <div className='msj'>
+          {mensaje === status.correcto ? (
+            <>
+              <p className='acierto'>{status.correcto}</p>
+              <button className='gameButton' onClick={() => getCharacter()}>
+                Jugar de nuevo!
+              </button>
+            </>
+          ) : (
+            <>
+              <p className='error'>{status.incorrecto}</p>
+>>>>>>> origin
               <button className='gameButton' onClick={handleEnter}>
                 Ingresar
               </button>
@@ -104,8 +156,22 @@ const GameCard = () => {
               </button>
             </>
           )}
+<<<<<<< HEAD
         </>
       ) : null}
+=======
+        </div>
+      ) : (
+        <>
+          <button className='gameButton' onClick={handleEnter}>
+            Ingresar
+          </button>
+          <button className='gameButton' onClick={() => getCharacter()}>
+            Siguiente
+          </button>
+        </>
+      )}
+>>>>>>> origin
     </div>
   );
 };
